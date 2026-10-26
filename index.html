@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Maharishi Vidyapith offers quality tuition, learning materials, student support and academic guidance.">
+<title> Maharishi Vidyapith | Learn. Grow. Succeed.</title>
+
+<style>
+:root {
+  --primary: #173b72;
+  --blue: #2563eb;
+  --light: #f3f7ff;
+  --text: #243047;
+  --muted: #68758a;
+  --white: #ffffff;
+  --green: #16845b;
+  --border: #e2e8f0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  line-height: 1.65;
+  background: #fff;
+}
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+button, .btn { cursor: pointer; }
+.container { width: min(1120px, 92%); margin: auto; }
+
+header {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+.nav {
+  min-height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.brand {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--primary);
+}
+.brand span { color: var(--blue); }
+.nav-links { display: flex; align-items: center; gap: 22px; }
+.nav-links a { font-size: 14px; font-weight: 700; }
+.nav-links a:hover { color: var(--blue); }
+.menu-btn {
+  display: none;
+  border: 0;
+  background: var(--light);
+  padding: 9px 12px;
+  border-radius: 8px;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 19px;
+  background: var(--blue);
+  color: white;
+  border: 0;
+  border-radius: 9px;
+  font-weight: 700;
+  transition: .2s;
+}
+.btn:hover { background: #1748b5; transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+}
+.btn-outline:hover { color: white; }
+
+.hero {
+  background: linear-gradient(120deg, #eef4ff 0%, #fff 75%);
+  padding: 72px 0;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 45px;
+  align-items: center;
+}
+.eyebrow {
+  color: var(--blue);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.7px;
+  font-size: 12px;
+}
+h1 {
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.12;
+  margin: 14px 0 20px;
+  color: var(--primary);
+  letter-spacing: -1.5px;
+}
+.hero p { font-size: 17px; color: var(--muted); max-width: 540px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.hero-image {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 20px 55px #173b7222;
+}
+.trust { padding: 24px 0; border-bottom: 1px solid var(--border); }
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  gap: 20px;
+}
+.trust strong { display: block; font-size: 17px; color: var(--primary); }
+.trust span { color: var(--muted); font-size: 13px; }
+
+section { padding: 76px 0; }
+.section-head { text-align: center; max-width: 700px; margin: 0 auto 38px; }
+.section-head h2 {
+  font-size: clamp(27px, 3vw, 37px);
+  color: var(--primary);
+  line-height: 1.2;
+}
+.section-head p { color: var(--muted); margin-top: 12px; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.card {
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  overflow: hidden;
+  background: white;
+  transition: .2s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 14px 35px #173b7210; }
+.card img { width: 100%; height: 195px; object-fit: cover; display: block; }
+.card-body { padding: 22px; }
+.card h3 { color: var(--primary); margin-bottom: 8px; font-size: 19px; }
+.card p { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+.tag {
+  display: inline-block;
+  background: #eaf1ff;
+  color: #2454a6;
+  font-size: 12px;
+  padding: 4px 9px;
+  border-radius: 30px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.soft { background: var(--light); }
+
+.material-list { display: grid; gap: 14px; }
+.material {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 19px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.material h3 { font-size: 16px; color: var(--primary); }
+.material p { color: var(--muted); font-size: 13px; }
+.material-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: #eaf1ff;
+  font-size: 23px;
+}
+.material-info { display: flex; align-items: center; gap: 15px; flex: 1; }
+.material .btn { white-space: nowrap; padding: 9px 13px; font-size: 13px; }
+
+.notice-list { display: grid; gap: 15px; }
+.notice {
+  display: flex;
+  gap: 17px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+.notice-date {
+  background: var(--primary);
+  color: white;
+  border-radius: 10px;
+  min-width: 62px;
+  height: 65px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  font-weight: 800;
+  font-size: 12px;
+}
+.notice h3 { color: var(--primary); font-size: 16px; }
+.notice p { color: var(--muted); font-size: 14px; margin-top: 5px; }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: start;
+}
+.feature-image {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+.check-list { list-style: none; margin-top: 20px; }
+.check-list li { margin: 12px 0; }
+.check-list li::before {
+  content: "✓";
+  color: var(--green);
+  font-weight: 900;
+  margin-right: 10px;
+}
+.form-card {
+  background: white;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 12px 35px #173b720b;
+}
+.form-card h3 { color: var(--primary); margin-bottom: 5px; font-size: 22px; }
+.form-card > p { color: var(--muted); font-size: 14px; margin-bottom: 22px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 15px; }
+.field.full { grid-column: 1 / -1; }
+label { font-weight: 700; font-size: 13px; }
+input, select, textarea {
+  width: 100%;
+  border: 1px solid #ccd5e3;
+  padding: 12px;
+  border-radius: 8px;
+  outline: none;
+  background: white;
+  color: var(--text);
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px #2563eb16;
+}
+textarea { resize: vertical; min-height: 95px; }
+.full-btn { width: 100%; }
+.small-note { color: var(--muted); font-size: 12px; margin-top: 12px; }
+
+#formMessage { margin-top: 15px; font-size: 14px; font-weight: 700; }
+.contact-box {
+  background: var(--primary);
+  color: white;
+  padding: 30px;
+  border-radius: 16px;
+}
+.contact-box h3 { font-size: 25px; margin-bottom: 12px; }
+.contact-box p { color: #e0e9fa; margin: 10px 0; }
+.contact-box a { text-decoration: underline; }
+
+footer { background: #10294e; color: white; padding: 30px 0; }
+.footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+footer p { color: #cfdaeb; font-size: 13px; }
+footer a { margin-left: 15px; font-size: 13px; }
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 850px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 20px 5%;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links.open { display: flex; }
+  .menu-btn { display: block; }
+  .hero-grid, .two-col { grid-template-columns: 1fr; }
+  .hero { padding: 48px 0; }
+  .hero-image { height: 300px; }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .feature-image { height: 320px; }
+}
+@media (max-width: 560px) {
+  section { padding: 52px 0; }
+  .cards, .form-grid { grid-template-columns: 1fr; }
+  .field.full { grid-column: auto; }
+  .trust-grid { grid-template-columns: 1fr; gap: 13px; }
+  .material { align-items: flex-start; flex-wrap: wrap; }
+  .material .btn { margin-left: 61px; }
+  .hero-image { height: 240px; }
+  .form-card { padding: 20px; }
+  .footer-row { flex-direction: column; }
+  footer a { margin-left: 0; margin-right: 15px; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home">Maharishi<span> Vidyapith</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation"
+      aria-expanded="false">☰ Menu</button>
+    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#courses">Courses</a>
+      <a href="#materials">Study Materials</a>
+      <a href="#notices">Notices</a>
+      <a href="#register">Student Registration</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Your learning journey starts here</span>
+      <h1>Learn Today.<br>Lead Tomorrow.</h1>
+      <p>
+        Quality tuition, clear concepts and personal academic guidance
+        to help every student build confidence and achieve their goals.
+      </p>
+      <div class="hero-actions">
+        <a href="#courses" class="btn">Explore Courses →</a>
+        <a href="#register" class="btn btn-outline">Join Our Classes</a>
+      </div>
+    </div>
+    <img class="hero-image"
+      src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1100&q=85"
+      alt="Students studying together in a learning environment">
+  </div>
+</section>
+
+<div class="trust">
+  <div class="container trust-grid">
+    <div><strong>Concept-Based Learning</strong><span>Understand, don't just memorise</span></div>
+    <div><strong>Student-Focused Teaching</strong><span>Guidance for individual progress</span></div>
+    <div><strong>Learning Resources</strong><span>Notes, practice and revision</span></div>
+  </div>
+</div>
+
+<section id="courses">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Our programmes</span>
+      <h2>Courses for Every Learner</h2>
+      <p>Choose the programme that matches your class, subject and academic goals.
+        Contact us for current batches, fees and availability.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80"
+          alt="Classroom teaching">
+        <div class="card-body">
+          <span class="tag">Classes 5–8</span>
+          <h3>Foundation Programme</h3>
+          <p>Build strong foundations in mathematics, science, English and other school subjects.</p>
+          <a class="btn" href="#register">Enquire Now</a>
+        </div>
+      </article>
+      <article class="card">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80"
+          alt="Student writing study notes">
+        <div class="card-body">
+          <span class="tag">Classes 9–10</span>
+          <h3>Board Exam Preparation</h3>
+          <p>Chapter-wise explanations, practice questions, revision plans and exam preparation.</p>
+          <a class="btn" href="#register">Enquire Now</a>
+        </div>
+      </article>
+      <article class="card">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
+          alt="Students working together">
+        <div class="card-body">
+          <span class="tag">Classes 11–12</span>
+          <h3>Higher Secondary Tuition</h3>
+          <p>Subject-focused learning, problem-solving sessions and guided exam revision.</p>
+          <a class="btn" href="#register">Enquire Now</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="materials">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Student resource centre</span>
+      <h2>Teaching Materials & Study Notes</h2>
+      <p>Access sample revision resources. Replace these examples with your own
+        verified notes, worksheets and lesson files before publishing.</p>
+    </div>
+    <div class="material-list">
+      <div class="material">
+        <div class="material-info">
+          <div class="material-icon">📘</div>
+          <div><h3>Mathematics Revision Notes</h3>
+            <p>Basic formulas and practice questions · Sample notes</p></div>
+        </div>
+        <button class="btn download-btn" data-note="math">Download Notes</button>
+      </div>
+      <div class="material">
+        <div class="material-info">
+          <div class="material-icon">🔬</div>
+          <div><h3>Science Study Guide</h3>
+            <p>Scientific method, observations and revision questions</p></div>
+        </div>
+        <button class="btn download-btn" data-note="science">Download Notes</button>
+      </div>
+      <div class="material">
+        <div class="material-info">
+          <div class="material-icon">📝</div>
+          <div><h3>English Practice Worksheet</h3>
+            <p>Grammar, vocabulary and writing practice</p></div>
+        </div>
+        <button class="btn download-btn" data-note="english">Download Notes</button>
+      </div>
+    </div>
+    <p class="small-note">These are example resources generated by this page, not official
+      course notes. Upload your own material files for actual teaching content.</p>
+  </div>
+</section>
+
+<section id="notices">
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">Stay informed</span>
+      <h2 style="font-size:34px;color:var(--primary);margin:12px 0">
+        Student Notices & Updates
+      </h2>
+      <p style="color:var(--muted);margin-bottom:25px">
+        Use this section to publish new batch announcements, exam schedules,
+        holidays and important academic updates.
+      </p>
+      <div class="notice-list">
+        <article class="notice">
+          <div class="notice-date">NEW<br>UPDATE</div>
+          <div><h3>New Batch Enquiries</h3>
+            <p>Students can submit the registration form to ask about upcoming batches.
+              Confirm dates and availability with the academy.</p></div>
+        </article>
+        <article class="notice">
+          <div class="notice-date">STUDY<br>TIP</div>
+          <div><h3>Build a Daily Study Routine</h3>
+            <p>Set small goals, revise regularly and practise questions for better retention.</p></div>
+        </article>
+        <article class="notice">
+          <div class="notice-date">EXAM<br>PREP</div>
+          <div><h3>Revision Resources</h3>
+            <p>Check the Study Materials section for sample notes and practice resources.</p></div>
+        </article>
+      </div>
+      <p class="small-note">The notices above are sample text. Update them with real
+        announcements and dates.</p>
+    </div>
+    <img class="feature-image" loading="lazy"
+      src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=900&q=80"
+      alt="Books and notes prepared for study">
+  </div>
+</section>
+
+<section class="soft" id="register">
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">Become a student</span>
+      <h2 style="font-size:36px;color:var(--primary);margin:12px 0">
+        Start Your Learning Journey
+      </h2>
+      <p style="color:var(--muted)">
+        Fill in the enquiry form to express interest in tuition classes.
+        Provide only the information needed to respond to your enquiry.
+      </p>
+      <ul class="check-list">
+        <li>Ask about subjects and available batches</li>
+        <li>Request information about class schedules</li>
+        <li>Get guidance on suitable learning resources</li>
+        <li>Receive follow-up after the form is connected to a real submission service</li>
+      </ul>
+      <div style="margin-top:28px">
+        <img loading="lazy"
+          src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=850&q=80"
+          alt="Students learning in a classroom"
+          style="width:100%;height:230px;object-fit:cover;border-radius:15px">
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h3>Student Enquiry Form</h3>
+      <p>Fields marked * are required.</p>
+      <form id="studentForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="studentName">Student name *</label>
+            <input id="studentName" name="studentName" required maxlength="100"
+              autocomplete="name" placeholder="Enter full name">
+          </div>
+          <div class="field">
+            <label for="studentClass">Class / Grade *</label>
+            <select id="studentClass" name="studentClass" required>
+              <option value="">Select class</option>
+              <option>Class 5</option><option>Class 6</option>
+              <option>Class 7</option><option>Class 8</option>
+              <option>Class 9</option><option>Class 10</option>
+              <option>Class 11</option><option>Class 12</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="subject">Subject of interest *</label>
+            <select id="subject" name="subject" required>
+              <option value="">Select subject</option>
+              <option>Mathematics</option><option>Science</option>
+              <option>English</option><option>Physics</option>
+              <option>Chemistry</option><option>Biology</option>
+              <option>Multiple subjects</option><option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="courseMode">Learning mode</label>
+            <select id="courseMode" name="courseMode">
+              <option>In-person tuition</option>
+              <option>Online tuition</option>
+              <option>Either mode</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="contactEmail">Email address *</label>
+            <input id="contactEmail" name="email" type="email" required
+              maxlength="150" autocomplete="email" placeholder="you@example.com">
+          </div>
+          <div class="field full">
+            <label for="guardianContact">Parent / guardian contact (optional)</label>
+            <input id="guardianContact" name="guardianContact" type="tel"
+              maxlength="30" autocomplete="tel" placeholder="phone number or whatsapp number">
+          </div>
+          <div class="field full">
+            <label for="message">Questions or preferred schedule (optional)</label>
+            <textarea id="message" name="message" maxlength="1000"
+              placeholder="Tell us which subject or batch you are interested in"></textarea>
+          </div>
+        </div>
+        <button class="btn full-btn" type="submit">Submit Enquiry →</button>
+        <div id="formMessage" role="status" aria-live="polite"></div>
+        <p class="small-note">
+          Demo form: submissions are not sent or saved. Before collecting real
+          student information, connect this form to a secure form service or backend
+          and publish an appropriate privacy notice.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container two-col">
+    <div>
+      <span class="eyebrow">We're here to help</span>
+      <h2 style="font-size:36px;color:var(--primary);margin:12px 0">
+        Contact Maharishi Vidyapith
+      </h2>
+      <p style="color:var(--muted);margin-bottom:20px">
+        Have questions about tuition, teaching materials or admissions?
+        Contact the academy using your verified details below.
+      </p>
+      <div class="contact-box">
+        <h3>Let's Talk About Learning</h3>
+        <p>📍 Address: Add your tuition centre address</p>
+        <p>📧 Email: <a href="mailto:02dhana95@gmail.com">02dhana95@gmail.com</a></p>
+        <p>📞 Phone: <a href="tel:+918638010117">+91 8638010117</a></p>
+        <p>🕒 Hours: Add your actual class and office timings</p>
+      </div>
+    </div>
+    <div>
+      <img class="feature-image" loading="lazy"
+        src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=900&q=80"
+        alt="Students participating in an educational session">
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div>
+      <a class="brand" href="#home" style="color:white">Maharishi Vidyapith</a>
+      <p style="margin-top:8px">Learn with purpose. Grow with confidence.</p>
+    </div>
+    <div>
+      <a href="#courses">Courses</a>
+      <a href="#materials">Materials</a>
+      <a href="#register">Enquiries</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p>© <span id="year"></span> Maharishi Vidyapith. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(open));
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const notes = {
+  math: {
+    filename: "sample-mathematics-revision.txt",
+    content: `MAHARISHI VIDYAPITH
+SAMPLE MATHEMATICS REVISION NOTES
+
+1. Order of operations:
+   Work through brackets, powers, multiplication/division,
+   and addition/subtraction in the correct order.
+
+2. Percentage:
+   Percentage = (part / whole) x 100
+
+3. Area:
+   Rectangle = length x breadth
+   Triangle = 1/2 x base x height
+
+PRACTICE:
+1. Find 20% of 250.
+2. Find the area of a rectangle 8 cm long and 5 cm wide.
+3. Solve: 3x + 5 = 20.
+
+These are general sample notes. Adapt them to the student's syllabus.`
+  },
+  science: {
+    filename: "sample-science-study-guide.txt",
+    content: `MAHARISHI VIDYAPITH
+SAMPLE SCIENCE STUDY GUIDE
+
+SCIENTIFIC METHOD
+1. Make an observation.
+2. Ask a question.
+3. Form a testable hypothesis.
+4. Plan and conduct an experiment safely.
+5. Record and analyse results.
+6. Draw a conclusion.
+
+REVISION QUESTIONS
+1. What is a hypothesis?
+2. Why should experiments be repeated?
+3. What is the difference between an observation and an inference?
+
+Use your prescribed textbook for complete syllabus coverage.`
+  },
+  english: {
+    filename: "sample-english-worksheet.txt",
+    content: `MAHARISHI VIDYAPITH
+SAMPLE ENGLISH PRACTICE WORKSHEET
+
+GRAMMAR
+1. A noun names a person, place, thing or idea.
+2. A verb expresses an action or state.
+3. An adjective describes a noun.
+4. Use punctuation to make meaning clear.
+
+PRACTICE
+1. Identify the verb: "The students read quietly."
+2. Change to past tense: "She writes a letter."
+3. Write five sentences describing your school.
+4. Correct the sentence: "he go to class every day."
+
+Review your teacher's instructions and prescribed syllabus.`
+  }
+};
+
+document.querySelectorAll(".download-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    const note = notes[button.dataset.note];
+    if (!note) return;
+
+    const blob = new Blob([note.content], {
+      type: "text/plain;charset=utf-8"
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+
+    a.href = url;
+    a.download = note.filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  });
+});
+
+// Demonstration only: no student details are uploaded or stored.
+document.getElementById("studentForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  const message = document.getElementById("formMessage");
+
+  message.style.color = "#b45309";
+  message.textContent =
+    "Demo only: your details have NOT been sent or saved. Connect a secure form service to receive enquiries.";
+
+  form.reset();
+});
+</script>
+</body>
+</html>
